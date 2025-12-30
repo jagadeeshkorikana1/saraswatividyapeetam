@@ -1,0 +1,55 @@
+<div class="about-container">
+  <div class="about-header">
+    <h1>Welcome to Azure Learning Restaurant</h1>
+    <p class="tagline">Where Azure Knowledge Meets Culinary Excellence</p>
+  </div>
+
+  <section class="mission-section">
+    <h2>Our Mission</h2>
+    <p>We transform complex Azure concepts into delectable learning experiences. Our unique approach combines hands-on practice with expert guidance, served in a way that's easy to digest.</p>
+    <p>Created by Jagadeesh Korikana, a passionate Azure cloud architect and trainer, this innovative learning platform makes mastering Azure both fun and effective.</p>
+  </section>
+
+  <section class="features-section">
+    <h2>Why Choose Us?</h2>
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features">
+        <div class="feature-icon">{{ feature.icon }}</div>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section">
+    <h2>Meet Our Team</h2>
+    <div class="team-grid">
+      <div class="team-card" *ngFor="let member of team">
+        <div class="member-info">
+          <h3>{{ member.name }}</h3>
+          <div class="role">{{ member.role }}</div>
+          <p>{{ member.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="methodology-section">
+    <h2>Our Learning Approach</h2>
+    <div class="methodology-content">
+      <p>Each "dish" in our menu is carefully crafted to represent an Azure service, with descriptions that draw parallels between the characteristics of the food and the features of the service.</p>
+      <ul>
+        <li>Replace traditional learning with engaging experiences</li>
+        <li>Make Azure concepts more relatable and memorable</li>
+        <li>Create a fun, interactive learning environment</li>
+        <li>Build practical cloud skills through hands-on practice</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Ready to Start Your Azure Journey?</h2>
+    <p>Join us and master Azure through our innovative learning experience.</p>
+    <button class="btn primary" routerLink="/home">Browse Our Menu</button>
+  </section>
+</div>

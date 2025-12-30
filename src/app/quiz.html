@@ -1,0 +1,91 @@
+<div class="quiz-page">
+  <header class="quiz-header">
+    <h1>Azure Developer Quiz</h1>
+    <div class="user-info">
+      <span *ngIf="userName">Logged in as: <strong>{{ userName }}</strong></span>
+      <button *ngIf="inQuiz" class="back-btn" (click)="backToHome()">Back</button>
+      <button *ngIf="inQuiz" class="nav-btn" (click)="scrollToBottom()">Go to Bottom</button>
+    </div>
+  </header>
+
+  <main class="quiz-body" id="quiz-main">
+    <!-- Home: show section boxes -->
+    <div *ngIf="!inQuiz" class="sections">
+      <div class="section-grid">
+        <div *ngFor="let s of sections" class="section-card" (click)="enterSection(s.id)">
+          <h3>{{ s.title }}</h3>
+          <p class="subtitle">{{ s.subtitle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz questions -->
+    <div *ngIf="inQuiz && !submitted" class="questions">
+      <h2 class="section-title">{{ currentSectionTitle }}</h2>
+      <div *ngFor="let q of currentQuestions" class="question-card">
+        <h3>{{ q.id }}. {{ q.q }}</h3>
+        <ul class="option-list">
+          <li *ngFor="let opt of q.options; let i = index" [class.selected]="answers.get(q.id) === i">
+            <label class="option-label" [class.checked]="answers.get(q.id) === i">
+              <input type="radio" name="q-{{q.id}}" [checked]="answers.get(q.id) === i" (change)="select(q.id,i)" />
+              <span class="opt-index">{{ char(i) }}.</span>
+              <span class="opt-text">{{ opt }}</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+
+      <div class="actions">
+        <button class="submit-btn" (click)="submit()" [disabled]="submitting">{{ submitting ? 'Checking...' : 'Submit Quiz' }}</button>
+        <button class="back-btn" (click)="backToHome()">Back to Sections</button>
+      </div>
+    </div>
+
+    <!-- Results: show all options with correct/incorrect coloring -->
+    <div *ngIf="inQuiz && submitted" class="results">
+      <h2>Results - {{ currentSectionTitle }}</h2>
+      <p>Your score: <strong>{{ score }}/{{ currentQuestions.length }}</strong></p>
+      <div class="percentage-bar">
+        <div class="percentage-fill" [style.width.%]="(score / currentQuestions.length) * 100"></div>
+        <div class="percentage-text">{{ ((score / currentQuestions.length) * 100) | number:'1.0-0' }}%</div>
+      </div>
+
+      <div class="share-row">
+        <span>Share your achievement:</span>
+        <a class="share-btn linkedin" [href]="linkedInShareUrl()" target="_blank">LinkedIn</a>
+        <a class="share-btn gmail" [href]="gmailShareUrl()" target="_blank">Gmail</a>
+        <a class="share-btn whatsapp" [href]="whatsappShareUrl()" target="_blank">WhatsApp</a>
+      </div>
+
+      <div class="result-list">
+        <div *ngFor="let r of results" class="result-item" [class.correct]="r.chosen === r.correct" [class.incorrect]="r.chosen !== null && r.chosen !== r.correct">
+          <div class="result-inner">
+            <h4>{{ r.id }}. {{ r.q }}</h4>
+            <ul class="option-list results-options">
+              <li *ngFor="let opt of currentQuestions[r.id - 1].options; let i = index"
+                  [ngClass]="{
+                    'opt-correct': i === r.correct,
+                    'opt-chosen': r.chosen === i,
+                    'opt-chosen-wrong': r.chosen === i && i !== r.correct
+                  }">
+                <span class="opt-index">{{ char(i) }}.</span>
+                <span class="opt-text">{{ opt }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="back-btn" (click)="backToHome()">Back to Sections</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Fixed bottom bar when in quiz to provide Top navigation and quick actions -->
+  <div *ngIf="inQuiz" class="bottom-bar">
+    <button class="back-btn" (click)="backToHome()">Back</button>
+    <div style="flex:1"></div>
+    <button class="nav-btn" (click)="scrollToTop()">Go to Top</button>
+  </div>
+</div>

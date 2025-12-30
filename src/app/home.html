@@ -1,0 +1,37 @@
+<div class="home-container">
+  <h1>Welcome to Saraswati Vidya Peetam Quiz</h1>
+  <p class="lead">Select a topic below to start a 10-question quiz.</p>
+
+  <div class="section-grid two-row">
+    <div class="section-card color-1" (click)="quiz.enterSection('webapps')">
+      <h3>App Service (Web Apps)</h3>
+      <p>Host web apps and APIs</p>
+    </div>
+    <div class="section-card color-2" (click)="quiz.enterSection('storage')">
+      <h3>Blob Storage</h3>
+      <p>Object storage for unstructured data</p>
+    </div>
+    <div class="section-card color-3" (click)="quiz.enterSection('serverless')">
+      <h3>Functions & Logic Apps</h3>
+      <p>Serverless compute and workflows</p>
+    </div>
+
+    <div class="section-card color-4" (click)="quiz.enterSection('apim')">
+      <h3>API Management</h3>
+      <p>Publish and manage APIs</p>
+    </div>
+    <div class="section-card color-5" (click)="quiz.enterSection('monitor')">
+      <h3>Azure Monitor</h3>
+      <p>Observability and diagnostics</p>
+    </div>
+    <div class="section-card color-6" (click)="quiz.enterSection('messaging')">
+      <h3>Messaging & Events</h3>
+      <p>Event Hubs, Service Bus, Event Grid</p>
+    </div>
+  </div>
+
+  <!-- Embed QuizComponent so Home can control it via template reference -->
+  <app-quiz #quiz style="display:none"></app-quiz>
+
+  <footer class="footer">© 2025 Saraswati Vidya Peetam. All rights reserved.</footer>
+</div>
