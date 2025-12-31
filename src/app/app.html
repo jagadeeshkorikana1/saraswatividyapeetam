@@ -62,12 +62,12 @@
   }
 
   main {
-    width: 100%;
     min-height: 100%;
-    display: flex;
+    max-width: 1100px;
+    border-radius: 20px;
+    margin: auto;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
     box-sizing: inherit;
     position: relative;
   }
@@ -79,8 +79,6 @@
   .content {
     display: flex;
     justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
     margin-bottom: 3rem;
   }
 
@@ -169,7 +167,6 @@
 
   /* App header / nav */
   .app-header {
-    width: 100%;
     background: linear-gradient(90deg, #4f46e5 0%, #06b6d4 100%);
     padding: 10px 18px;
     box-shadow: 0 6px 24px rgba(2, 6, 23, 0.12);
@@ -182,7 +179,6 @@
     gap: 12px;
     align-items: center;
     justify-content: flex-start;
-    max-width: 900px;
     margin: 0 auto;
   }
   .nav a {
@@ -197,6 +193,10 @@
     background: rgba(255, 255, 255, 0.12);
     transform: translateY(-2px);
   }
+  .nav a.active, .nav a[routerLinkActive] { box-shadow: inset 0 -2px 0 rgba(255,255,255,0.12); }
+
+  /* site footer (global) */
+  .site-footer { text-align:center; padding:16px 0; color:#64748b; font-size:13px; margin:18px auto 36px; }
 
   /* Toast styles (top-right) */
   #app-toast {
@@ -247,19 +247,21 @@
   <div class="app-header">
     <nav class="nav">
       <a routerLink="/home">Home</a>
-      <a routerLink="/home">Quiz</a>
-      <a routerLink="/about">About</a>
+      <a routerLink="/quiz">Quiz</a>
       <a routerLink="/contact">Contact</a>
     </nav>
   </div>
 
   <!-- Removed large placeholder hero to free layout space -->
-  <div style="width:100%;max-width:900px;margin:0 auto;padding:1rem;">
+  <div>
     <!-- Optional app header could go here -->
   </div>
 </main>
 
 <router-outlet />
+
+<footer class="site-footer">© 2025 Saraswati Vidya Peetam. All rights reserved.</footer>
+
 <!-- toast outlet -->
 <div id="app-toast">
   <div *ngIf="toastMessage" class="toast" [attr.data-type]="toastMessage.type">

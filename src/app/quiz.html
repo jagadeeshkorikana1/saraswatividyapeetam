@@ -1,17 +1,17 @@
 <div class="quiz-page">
   <header class="quiz-header">
-    <h1>Azure Developer Quiz</h1>
     <div class="user-info">
-      <span *ngIf="userName">Logged in as: <strong>{{ userName }}</strong></span>
       <button *ngIf="inQuiz" class="back-btn" (click)="backToHome()">Back</button>
       <button *ngIf="inQuiz" class="nav-btn" (click)="scrollToBottom()">Go to Bottom</button>
     </div>
+    <p class="lead">Select a topic below to start a 10-question quiz.</p>
   </header>
 
   <main class="quiz-body" id="quiz-main">
+    
     <!-- Home: show section boxes -->
     <div *ngIf="!inQuiz" class="sections">
-      <div class="section-grid">
+      <div class="section-grid two-row">
         <div *ngFor="let s of sections" class="section-card" (click)="enterSection(s.id)">
           <h3>{{ s.title }}</h3>
           <p class="subtitle">{{ s.subtitle }}</p>

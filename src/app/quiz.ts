@@ -12,14 +12,13 @@ type Question = { id: number; q: string; options: string[]; correct: number };
   templateUrl: './quiz.html',
   styleUrls: ['./quiz.scss'],
 })
-export class QuizComponent {
+export class Quiz {
   private router = inject(Router);
   private toast = inject(ToastService);
 
   // App state
   inQuiz = false;
   currentSectionId: string | null = null;
-  userName = '';
 
   // Answers/results
   answers = new Map<number, number>();
@@ -32,7 +31,7 @@ export class QuizComponent {
   sections: Array<{ id: string; title: string; subtitle?: string; questions: Question[] }> = [
     {
       id: 'webapps',
-      title: 'Azure App Service (Web Apps)',
+      title: 'App Service (Web Apps)',
       subtitle: 'Host web apps and APIs',
       questions: [
         { id: 1, q: 'Which runtime is supported by Azure App Service for Linux?', options: ['IIS only', 'Node.js, Python, .NET, Java', 'Only PHP', 'Only Go'], correct: 1 },
@@ -49,7 +48,7 @@ export class QuizComponent {
     },
     {
       id: 'storage',
-      title: 'Azure Blob Storage',
+      title: 'Blob Storage',
       subtitle: 'Object storage for unstructured data',
       questions: [
         { id: 1, q: 'Which access tiers does Blob Storage support?', options: ['Hot, Cool, Archive', 'Only Hot', 'Cold and Frozen', 'Nearline'], correct: 0 },
@@ -66,7 +65,7 @@ export class QuizComponent {
     },
     {
       id: 'serverless',
-      title: 'Azure Functions & Logic Apps',
+      title: 'Functions & Logic Apps',
       subtitle: 'Serverless compute and workflows',
       questions: [
         { id: 1, q: 'What triggers an Azure Function?', options: ['HTTP, Timer, Queue, EventGrid', 'Only HTTP', 'Only Timer', 'Only Queue'], correct: 0 },
@@ -83,7 +82,7 @@ export class QuizComponent {
     },
     {
       id: 'apim',
-      title: 'Azure API Management (APIM)',
+      title: 'API Management (APIM)',
       subtitle: 'Publish and manage APIs',
       questions: [
         { id: 1, q: 'APIM is used to', options: ['Manage, secure and expose APIs', 'Store blobs', 'Host VMs', 'Monitor networks'], correct: 0 },
@@ -100,7 +99,7 @@ export class QuizComponent {
     },
     {
       id: 'monitor',
-      title: 'Azure Monitor',
+      title: 'Monitor',
       subtitle: 'Observability and diagnostics',
       questions: [
         { id: 1, q: 'Azure Monitor collects', options: ['Metrics, logs, traces', 'Only metrics', 'Only logs', 'Only traces'], correct: 0 },
@@ -117,7 +116,7 @@ export class QuizComponent {
     },
     {
       id: 'messaging',
-      title: 'Azure Messaging & Event-based Services',
+      title: 'Messaging & Events',
       subtitle: 'Event Hubs, Service Bus, Event Grid',
       questions: [
         { id: 1, q: 'Which service is best for telemetry/event ingestion at massive scale?', options: ['Event Hubs', 'Service Bus', 'Event Grid', 'Storage Queue'], correct: 0 },

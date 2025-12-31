@@ -1,37 +1,101 @@
-<div class="home-container">
-  <h1>Welcome to Saraswati Vidya Peetam Quiz</h1>
-  <p class="lead">Select a topic below to start a 10-question quiz.</p>
-
-  <div class="section-grid two-row">
-    <div class="section-card color-1" (click)="quiz.enterSection('webapps')">
-      <h3>App Service (Web Apps)</h3>
-      <p>Host web apps and APIs</p>
-    </div>
-    <div class="section-card color-2" (click)="quiz.enterSection('storage')">
-      <h3>Blob Storage</h3>
-      <p>Object storage for unstructured data</p>
-    </div>
-    <div class="section-card color-3" (click)="quiz.enterSection('serverless')">
-      <h3>Functions & Logic Apps</h3>
-      <p>Serverless compute and workflows</p>
-    </div>
-
-    <div class="section-card color-4" (click)="quiz.enterSection('apim')">
-      <h3>API Management</h3>
-      <p>Publish and manage APIs</p>
-    </div>
-    <div class="section-card color-5" (click)="quiz.enterSection('monitor')">
-      <h3>Azure Monitor</h3>
-      <p>Observability and diagnostics</p>
-    </div>
-    <div class="section-card color-6" (click)="quiz.enterSection('messaging')">
-      <h3>Messaging & Events</h3>
-      <p>Event Hubs, Service Bus, Event Grid</p>
-    </div>
+<div class="about-container">
+  <div class="about-header">
+    <h1>Welcome to Saraswati Vidya Peetam</h1>
+    <p class="tagline">Learn Azure the Gen Z Way – From Basics to Brilliance</p>
   </div>
 
-  <!-- Embed QuizComponent so Home can control it via template reference -->
-  <app-quiz #quiz style="display:none"></app-quiz>
+  <section class="mission-section">
+    <h2>Our Mission</h2>
+    <p style="color:#37474f"><strong>At Saraswati Vidya Peetam, our mission is simple yet powerful:</strong></p>
+    <p style="color:#37474f"><strong>To empower learners with practical, industry-ready Azure skills that accelerate careers and drive innovation in a cloud-first world.</strong></p>
 
-  <footer class="footer">© 2025 Saraswati Vidya Peetam. All rights reserved.</footer>
+    <p>We believe learning should be:</p>
+    <ul class="mission-list">
+      <li>
+        <div class="method-row">
+          <div class="method-title">Accessible</div>
+          <div class="method-sep">–</div>
+          <div class="method-desc">Knowledge for everyone, regardless of background.</div>
+        </div>
+      </li>
+      <li>
+        <div class="method-row">
+          <div class="method-title">Practical</div>
+          <div class="method-sep">–</div>
+          <div class="method-desc">Real-world scenarios, hands-on labs, and actionable insights.</div>
+        </div>
+      </li>
+      <li>
+        <div class="method-row">
+          <div class="method-title">Transformative</div>
+          <div class="method-sep">–</div>
+          <div class="method-desc">Turning complex cloud concepts into clear, digestible learning experiences.</div>
+        </div>
+      </li>
+      <li>
+        <div class="method-row">
+          <div class="method-title">Engaging</div>
+          <div class="method-sep">–</div>
+          <div class="method-desc">Designed for the Gen Z way: interactive, fun, and relatable.</div>
+        </div>
+      </li>
+    </ul>
+
+    <p class="mission-credits">Created by Jagadeesh Korikana, a passionate Azure Cloud Trainer, this innovative learning platform makes mastering Azure both fun, effective, and future-ready.</p>
+  </section>
+
+  <section class="features-section">
+    <h2>Why Choose Us?</h2>
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features">
+        <div class="feature-icon">{{ feature.icon }}</div>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="methodology-section">
+    <h2>Our Learning Approach – The Gen Z Way</h2>
+    <div class="methodology-content">
+      <p><strong>We are a Gen Z–favored, future-focused training institute that understands how today’s learners want to grow. Our methodology is designed to break away from traditional, boring lectures and replace them with interactive, immersive experiences that resonate with the digital-first generation.</strong></p>
+      <p>Here’s how we do it:</p>
+      <ul class="method-list">
+        <li>
+          <div class="method-row">
+            <div class="method-title">Replace traditional learning with engaging experiences</div>
+            <div class="method-sep">–</div>
+            <div class="method-desc">No more passive slides; expect real-world projects, gamified sessions, and collaborative learning.</div>
+          </div>
+        </li>
+        <li>
+          <div class="method-row">
+            <div class="method-title">Make Azure concepts more relatable and memorable</div>
+            <div class="method-sep">–</div>
+            <div class="method-desc">We use analogies, storytelling, and practical examples that connect with everyday tech life.</div>
+          </div>
+        </li>
+        <li>
+          <div class="method-row">
+            <div class="method-title">Create a fun, interactive learning environment</div>
+            <div class="method-sep">–</div>
+            <div class="method-desc">Polls, quizzes, live coding, and challenges keep you energized and involved.</div>
+          </div>
+        </li>
+        <li>
+          <div class="method-row">
+            <div class="method-title">Build practical cloud skills through hands-on practice</div>
+            <div class="method-sep">–</div>
+            <div class="method-desc">Learn by doing with labs, demos, and real-time problem-solving.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h3>Ready to Start Your Azure Journey?</h3>
+    <p>Join us and master Azure through our innovative learning experience.</p>
+    <button class="btn primary" routerLink="/contact">Browse Our Menu</button>
+  </section>
 </div>

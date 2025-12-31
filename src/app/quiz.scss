@@ -1,10 +1,11 @@
-.quiz-page { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: #222; padding: 24px; max-width: 900px; margin: 0 auto; }
-.quiz-header { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom: 18px; }
-.quiz-header h1 { margin:0; font-size: 1.6rem; color: #0f172a; }
+.quiz-page { max-width: 1100px; margin: 0 auto; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: #222; }
+.quiz-header { align-items:center; justify-content:space-between; gap:16px; margin-bottom: 18px; }
+.quiz-header h1 { font-size:1rem; margin-bottom:3px; color:#0f172a; }
+.quiz-header.lead { color:#475569; margin-bottom:15px; }
 .user-info { display:flex; gap:12px; align-items:center; }
 .logout { background:#ef4444; color:white; border:0; padding:6px 10px; border-radius:6px; cursor:pointer; }
 .quiz-body { background: linear-gradient(180deg,#ffffff 0%, #f8fafc 100%); padding: 18px; border-radius: 8px; box-shadow: 0 6px 26px rgba(2,6,23,0.08); }
-.question-card { border: 1px solid rgba(15,23,42,0.04); padding: 18px; border-radius:12px; margin-bottom:16px; background: linear-gradient(180deg,#ffffff,#fbfdff); box-shadow:0 8px 22px rgba(2,6,23,0.06); }
+.question-card { border: 1px solid rgba(15,23,42,0.04); padding: 15px; border-radius:12px; margin-bottom:16px; background: linear-gradient(180deg,#ffffff,#fbfdff); box-shadow:0 8px 22px rgba(2,6,23,0.06); }
 .question-card h3 { font-size:1.05rem; margin-bottom:8px; }
 .question-card ul { list-style:none; padding:0; margin:0; display:grid; grid-template-columns: 1fr; gap:8px; }
 .option-list { gap:10px; }
@@ -41,9 +42,9 @@
 /* align logout to right */
 .quiz-header .user-info { margin-left:auto; }
 
-.section-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:16px; }
-.section-card { background:#fff; border-radius:8px; padding:16px; box-shadow:0 8px 20px rgba(2,6,23,0.06); cursor:pointer; transition:transform .15s ease, box-shadow .15s ease; }
-.section-card:hover { transform: translateY(-4px); box-shadow:0 12px 28px rgba(2,6,23,0.09); }
+.section-grid.two-row { display:grid; grid-template-columns: repeat(3, 1fr); gap:18px; margin-top:18px; }
+.section-card { padding:18px; border-radius:12px; box-shadow:0 10px 28px rgba(2,6,23,0.06); cursor:pointer; transition:transform .12s ease; }
+.section-card:hover { transform: translateY(-6px);box-shadow:0 12px 28px rgba(2,6,23,0.09);  }
 .section-title { margin:0 0 12px 0; }
 .subtitle { color:#475569; font-size:0.95rem; }
 
@@ -62,3 +63,5 @@
 .share-btn.linkedin { background: linear-gradient(90deg,#0a66c2,#004182); }
 .share-btn.gmail { background: linear-gradient(90deg,#ea4335,#d93025); }
 .share-btn.whatsapp { background: linear-gradient(90deg,#25D366,#128C7E); }
+
+.footer { text-align:center; margin-top:26px; color:#64748b; font-size:13px; }
