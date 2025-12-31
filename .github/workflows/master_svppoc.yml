@@ -52,4 +52,4 @@ jobs:
           app-name: 'svppoc'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0A5F869CE25A4132B85B2489B7B57F65 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_041904F26DC14353A6BCFC445EEE0A2C }}
