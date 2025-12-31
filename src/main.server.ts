@@ -1,5 +1,5 @@
 // src/main.server.ts
-import 'zone.js/dist/zone-node';
+import 'zone.js/node';
 
 import { bootstrapApplication, BootstrapContext } from '@angular/platform-browser';
 import { provideServerRendering } from '@angular/platform-server';
